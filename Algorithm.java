@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class algorithm {
+public class Algorithm {
 	
 	public void greetings() {
 		Scanner in = new Scanner(System.in);
@@ -10,62 +10,45 @@ public class algorithm {
 		
 		name = name.toLowerCase();
 		
-		System.out.print("Hello ! "+name+" Lets Play Rock Paper Scissors");
+		System.out.print("Hello ! "+name+" Lets Play Addition++");
 		System.out.println();
 	}
 	
-	public void toStart(String choice) {
+	public void toGenerate() {
+		Scanner in = new Scanner(System.in);
+		
 		Random rn = new Random();
-		int temp = rn.nextInt((3-1)+1) + 1;
-		switch(temp) {
+		int num1 = rn.nextInt((99-1)+1) + 1;
+		int num2 = rn.nextInt((99-1)+1) + 1;
+		int sum = num1+num2;
 		
-		case 1: 
-			if(choice.toLowerCase() == "rock") {
-				System.out.println("Computer Choose >>> rock");
-				System.out.println("Congrats you won !");
-			}
-			else {
-				System.out.println("Computer Choose >>> rock");
-				System.out.println("Sorry You Lose");
-			}
-			break;
-			
-		case 2:
-			if(choice.toLowerCase() == "rock") {
-				System.out.println("Computer Choose >>> rock");
-				System.out.println("Congrats you won !");
-			}
-			else {
-				System.out.println("Computer Choose >>> rock");
-				System.out.println("Sorry You Lose");
-			}
-			break;
-			
-		case 3:
-			if(choice.toLowerCase() == "rock") {
-				System.out.println("Computer Choose >>> rock");
-				System.out.println("Congrats you won !");
-			}
-			else {
-				System.out.println("Computer Choose >>> rock");
-				System.out.println("Sorry You Lose");
-			}
-			break;
+		System.out.println(num1+" + "+num2+" = ");
+		int answer = in.nextInt();
 		
-		default:
-			System.out.println("Invalid Choice ! Please Try again...");		
-		}
+		if(answer == sum)
+			System.out.println("Congratulation Correct Answer !");
+		else
+			System.out.println("Wrong Answer");
+		
+		System.out.println();
 	}
 	
 	public static void main(String args[]) {
 		Scanner in = new Scanner(System.in);
-		algorithm add = new algorithm();
-		
+		Algorithm add = new Algorithm();
+
 		add.greetings();
 		
-		System.out.print("Enter you choice [rock,paper,scissors] >>> ");
-		String choice = in.next();
-		
-		add.toStart(choice);
+		while(true) {
+			add.toGenerate();
+			
+			System.out.println("Press Y to Play Again or N to Quit >>> ");
+			String choice = in.nextLine();
+			
+			if(choice.toLowerCase().equalsIgnoreCase("y"))
+				continue;
+			else
+				break;
+		}
 	}
 }
